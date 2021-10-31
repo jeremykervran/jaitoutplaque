@@ -1,4 +1,4 @@
-class APIDepartments {
+class Departments {
     constructor () {
         this.url = 'https://geo.api.gouv.fr/departements';
         this.getRandomDepartment()
@@ -67,4 +67,4 @@ class APIDepartments {
      }
 }
 
-new APIDepartments()
+new Departments()
