@@ -26,6 +26,16 @@ class Jobs {
         if (stringArray[stringArray.length-1].indexOf('(') > -1) {
             stringArray.pop()
         }
+
+        for (let word in stringArray) {
+            if ("-" === word.charAt(0) && "-" === word.charAt(-1)) {
+                word = ""
+            }
+
+            if ("(" === word.charAt(0) && ")" === word.charAt(-1)) {
+                word = ""
+            }
+        }
         
         string = stringArray.join(" ")
         
