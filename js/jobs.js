@@ -1,6 +1,7 @@
 class Jobs {
     constructor() {
         this.json = {}
+        this.durationMax = 40
         this.setRandomJobs()
     }
 
@@ -10,15 +11,22 @@ class Jobs {
 
     removeAfterSlash(string) {
         const stringArray = string.split(' ')
-        console.log(stringArray)
+        const slashPos = string.indexOf('/')
 
-        if (string.indexOf('/') > -1) {
-            stringArray.splice(1, 2)
+        if (slashPos > -1) {
+            if (1 === slashPos) {
+                stringArray.splice(1, 2)
+            }
+
+            if (2 === slashPos) {
+                stringArray.splice(2, 3, 4)
+            }
         }
         
         if (stringArray[stringArray.length-1].indexOf('(') > -1) {
             stringArray.pop()
         }
+        
         string = stringArray.join(" ")
         
         return string
@@ -44,9 +52,9 @@ class Jobs {
         const jobNow    = document.getElementById("job-now")
         const jobDuration = document.getElementById("job-duration")
         
-        jobBefore.innerHTML = this.removeAfterSlash(this.getRandomJob(jobs))
-        jobNow.innerHTML = this.removeAfterSlash(this.getRandomJob(jobs)).toLowerCase()
-        jobDuration.innerHTML = Math.floor(Math.random() * 40) + 1
+        jobBefore.innerHTML = this.removeAfterSlash(this.getRandomJob(this.json))
+        jobNow.innerHTML = this.removeAfterSlash(this.getRandomJob(this.json)).toLowerCase()
+        jobDuration.innerHTML = Math.floor(Math.random() * this.durationMax) + 1
     }
 }
 
