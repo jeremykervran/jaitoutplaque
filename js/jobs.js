@@ -11,7 +11,7 @@ class Jobs {
 
     removeAfterSlash(string) {
         const stringArray = string.split(' ')
-        const slashPos = string.indexOf('/')
+        const slashPos = stringArray.indexOf('/')
 
         if (slashPos > -1) {
             if (1 === slashPos) {
@@ -19,7 +19,7 @@ class Jobs {
             }
 
             if (2 === slashPos) {
-                stringArray.splice(2, 3, 4)
+                stringArray.splice(2, 3)
             }
         }
         
