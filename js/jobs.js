@@ -52,9 +52,9 @@ class Jobs {
         const jobNow    = document.getElementById("job-now")
         const jobDuration = document.getElementById("job-duration")
         
-        jobBefore.innerHTML = this.removeAfterSlash(this.getRandomJob(this.json))
-        jobNow.innerHTML = this.removeAfterSlash(this.getRandomJob(this.json)).toLowerCase()
-        jobDuration.innerHTML = Math.floor(Math.random() * this.durationMax) + 1
+        jobBefore.innerText = this.removeAfterSlash(this.getRandomJob(this.json))
+        jobNow.innerText = this.removeAfterSlash(this.getRandomJob(this.json)).toLowerCase()
+        jobDuration.innerText = Math.floor(Math.random() * this.durationMax) + 1
     }
 }
 

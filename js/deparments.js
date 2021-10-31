@@ -25,7 +25,7 @@ class Departments {
 
             let article = this.getDepartmentArticle(data[rand].code)
 
-            jobDepartment.innerHTML = article + data[rand].nom
+            jobDepartment.innerText = article + data[rand].nom
         })
 
         .catch((error) => {
