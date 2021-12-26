@@ -47,24 +47,22 @@ class Jobs {
         const spec = sector[this.randomId(sector)].children
         const subspec = spec[this.randomId(spec)].children
 
-        const job = subspec[this.randomId(subspec)].text
-
-        return job
+        return subspec[this.randomId(subspec)].text
     }
 
     async setRandomJobs() {
-        const response = await fetch('../json/metiers.json')
-        const jobs = await response.json()
-        
-        this.json = jobs  
+        const response = await fetch('../json/jobs.json')
+        this.json = await response.json()
     
         const jobBefore = document.getElementById("job-before")
         const jobNow    = document.getElementById("job-now")
         const jobDuration = document.getElementById("job-duration")
+
+        const durationMaxNumber = Math.floor(Math.random() * this.durationMax) + 1
         
         jobBefore.innerText = this.removeAfterSlash(this.getRandomJob(this.json))
         jobNow.innerText = this.removeAfterSlash(this.getRandomJob(this.json)).toLowerCase()
-        jobDuration.innerText = Math.floor(Math.random() * this.durationMax) + 1
+        jobDuration.innerText = durationMaxNumber.toString()
     }
 }
 
